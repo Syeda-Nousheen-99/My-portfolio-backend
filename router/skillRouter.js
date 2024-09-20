@@ -1,0 +1,12 @@
+import express from 'express';
+import {addNewwSkill, deleteSkill, updateSkill, getAllSkill } from '../controller/skillController.js';
+import {isAuthenticated} from '../middlewares/auth.js'
+
+const router = express.Router()
+
+router.post("/add", isAuthenticated, addNewwSkill);
+router.delete("/delete/:id", isAuthenticated, deleteSkill);
+router.put("/update/:id", isAuthenticated, updateSkill);
+router.get("/getall", getAllSkill);
+
+export default router;
