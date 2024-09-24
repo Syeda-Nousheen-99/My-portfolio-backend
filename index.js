@@ -55,5 +55,5 @@ mongoose.connect(mongoURI, {
     console.error('Error connecting to MongoDB:', error);
   });
 app.use(errorMiddlerware)
-// export default app;
+export default app;
 module.exports = app;
