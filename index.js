@@ -17,17 +17,17 @@ const app = express();
 
 // Origin
 app.use(cors({
-    origin:[process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-  }));
+  origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload({
-    useTempFiles: true,
-    tempFileDir: "/tmp/",
+  useTempFiles: true,
+  tempFileDir: "/tmp/",
 }));
 
 app.use("/api/v1/message", messageRouter);
@@ -54,5 +54,6 @@ mongoose.connect(mongoURI, {
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-  app.use(errorMiddlerware)
-export default app;
+app.use(errorMiddlerware)
+// export default app;
+module.exports = app;
