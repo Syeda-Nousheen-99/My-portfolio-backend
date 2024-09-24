@@ -56,4 +56,4 @@ mongoose.connect(mongoURI, {
   });
 app.use(errorMiddlerware)
 export default app;
-module.exports = app;
+// module.exports = app;
